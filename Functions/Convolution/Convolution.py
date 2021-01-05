@@ -1,4 +1,5 @@
-import matplotlib.pyplot as plt
+#   Author: Kenneth Low
+#   File:   Convolution.py
 
 
 def convolution(input1, input2, tr=True):
@@ -59,6 +60,7 @@ def convolution(input1, input2, tr=True):
 
 
 if __name__ == '__main__':
+    import matplotlib.pyplot as plt
     x1 = [1]*10
     x2 = [1]*15
 
