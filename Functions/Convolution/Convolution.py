@@ -57,6 +57,7 @@ def convolution(input1, input2, tr=True):
 
     return data_out
 
+
 if __name__ == '__main__':
     x1 = [1]*10
     x2 = [1]*15
