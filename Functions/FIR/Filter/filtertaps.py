@@ -178,7 +178,7 @@ if __name__ == '__main__':
 
     delta = [1] + [0]*1000
 
-    lpf = lowpass_taps(2*np.pi*100/fs, 50)
+    lpf = lowpass_taps(2*np.pi*100/fs, 41)
 
     lpf = filt.firfilter(delta, lpf)
 
@@ -187,6 +187,14 @@ if __name__ == '__main__':
     plt.plot(f, data)
     plt.show()
 
+    sine = []
+    for i in range(1000):
+        sine.append(np.cos(2*np.pi*98.5*i/fs))
+
+    out = filt.firfilter(sine, lpf)
+    plt.plot(sine)
+    plt.plot(out)
+    plt.show()
 
 
     hpf = highpass_taps(2 * np.pi * 100 / fs, 51)

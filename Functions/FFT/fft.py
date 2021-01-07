@@ -33,7 +33,7 @@ def abs_fft_dB(Fs, data):
 
     datadb = []
     for i in range(len(data)):
-        datadb.append(10 * np.log10(data[i]))
+        datadb.append(20 * np.log10(data[i]))
 
     return (f, datadb)
 
@@ -51,6 +51,6 @@ def abs_fft_dB_rel(Fs, data):
 
     datadb = []
     for i in range(len(data)):
-        datadb.append(10 * np.log10(data[i] / ref))
+        datadb.append(20 * np.log10(data[i] / ref))
 
     return (f, datadb)
