@@ -166,3 +166,56 @@ def bandstop_taps(wa, wb, N=None, min_tap=None, max_tap=None):
             taps.append(1 - (wb/np.pi - wa/np.pi))
 
     return taps
+
+
+if __name__ == '__main__':
+    import matplotlib.pyplot as plt
+
+    import BasicFiltering.Functions.FFT.fft as fft
+    import BasicFiltering.Functions.FIR.Filter.filter as filt
+
+    fs = 1000
+
+    delta = [1] + [0]*1000
+
+    lpf = lowpass_taps(2*np.pi*100/fs, 50)
+
+    lpf = filt.firfilter(delta, lpf)
+
+    f, data = fft.abs_fft_dB_rel(fs, lpf)
+
+    plt.plot(f, data)
+    plt.show()
+
+
+
+    hpf = highpass_taps(2 * np.pi * 100 / fs, 51)
+
+    hpf = filt.firfilter(delta, hpf)
+
+    f, data = fft.abs_fft_dB_rel(fs, hpf)
+
+    plt.plot(f, data)
+    plt.show()
+
+
+
+    bpf = bandpass_taps(2 * np.pi * 100 / fs, 2 * np.pi * 150 / fs, 50)
+
+    bpf = filt.firfilter(delta, bpf)
+
+    f, data = fft.abs_fft_dB_rel(fs, bpf)
+
+    plt.plot(f, data)
+    plt.show()
+
+
+
+    bsf = bandstop_taps(2 * np.pi * 100 / fs, 2 * np.pi * 150 / fs, 51)
+
+    bsf = filt.firfilter(delta, bsf)
+
+    f, data = fft.abs_fft_dB_rel(fs, bsf)
+
+    plt.plot(f, data)
+    plt.show()
