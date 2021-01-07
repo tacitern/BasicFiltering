@@ -1,9 +1,9 @@
 import BasicFiltering.Functions.Convolution.Convolution as conv
 
 
-def filter(data_in, firfiltertaps, tr=True):
+def firfilter(data_in, firfiltertaps, tr=True):
     """
-    'filter' preforms convolution on the input data list with a set of FIR filter taps.
+    'firfilter' preforms convolution on the input data list with a set of FIR filter taps.
     All digital filtering is essentially convolution on a set of incoming data
     with a set of filter taps. In the case of FIR filtering there is no feedback required
     allowing a straight MAC (Multiply Accumulate) process can be used. The convolution function
